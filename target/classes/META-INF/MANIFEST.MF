@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1587673297498
+Build-Jdk: 1.8.0_241
+Built-By: Usuario
+Bundle-ManifestVersion: 2
+Bundle-Name: ROUTE-UNIANDES ::: WS ::: PROXY HCM
+Bundle-SymbolicName: co.edu.uniandes.uniandes-hcm
+Bundle-Version: 1.0.5
+Created-By: Apache Maven Bundle Plugin
+Export-Package: co.edu.uniandes.hcm.configuration;version="1.0.1";uses:=
+ "javax.sql,org.apache.camel.builder,org.slf4j",co.edu.uniandes.hcm.rout
+ es;version="1.0.1";uses:="co.edu.uniandes.hcm.configuration,org.springf
+ ramework.stereotype",co.edu.uniandes.hcm.util;version="1.0.1"
+Import-Package: co.edu.uniandes.hcm.configuration;version="[1.0,2)",co.e
+ du.uniandes.hcm.util;version="[1.0,2)",com.fasterxml.jackson.core;versi
+ on="[2.6,3)",javax.sql,org.apache.camel;version="[2.17,3)",org.apache.c
+ amel.builder;version="[2.17,3)",org.apache.camel.component.properties;v
+ ersion="[2.17,3)",org.apache.camel.component.sql;version="[2.17,3)",org
+ .apache.camel.model;version="[2.17,3)",org.apache.camel.model.rest;vers
+ ion="[2.17,3)",org.slf4j;version="[1.7,2)",org.springframework.jndi,org
+ .springframework.stereotype
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-4.2.0.201903051501

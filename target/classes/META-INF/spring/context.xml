@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configures the Camel Context -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ctx="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:camel="http://camel.apache.org/schema/spring"
+	xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"	
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<osgix:cm-properties id="props" persistent-id="uniandes.hgc" />
+
+	<camelContext id="CTX-PROXY-SERVICES-HCM" useMDCLogging="true" trace="false" xmlns="http://camel.apache.org/schema/spring">
+		<package>co.edu.uniandes.hcm.routes</package>
+	</camelContext>		
+
+</beans>

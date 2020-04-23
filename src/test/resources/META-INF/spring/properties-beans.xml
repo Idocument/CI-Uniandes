@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configures the Camel Context -->
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:camel-cxf="http://camel.apache.org/schema/cxf" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:ctx="http://www.springframework.org/schema/context" xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd
+		http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd 
+       	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       	http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+       	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<util:properties id="props" location="file:${karaf.home}/uniandes.hgc.properties"/>
+	<ctx:property-placeholder properties-ref="props" />
+</beans>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- llamado a POM padre -->
+	<parent>
+		<groupId>co.edu.uniandes.fuse.core</groupId>
+		<artifactId>parent-pom</artifactId>
+		<version>1.0.10</version>
+	</parent>
+
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>co.edu.uniandes</groupId>
+	<artifactId>uniandes-hcm</artifactId>
+	<version>1.0.5</version>
+	<packaging>bundle</packaging>
+	<name>ROUTE-UNIANDES ::: WS ::: PROXY HCM</name>
+
+	<properties>
+		<version.fabric8-maven-plugin>1.2.0.redhat-630187</version.fabric8-maven-plugin>
+		<fabric8.profile>uniandes-integraciones-proxy-hcm</fabric8.profile>
+		<fabric8.profileVersion>${timestamp}</fabric8.profileVersion>
+		<fabric8.jolokiaUrl>http://localhost:8181/jolokia</fabric8.jolokiaUrl>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-netty-http</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-sql</artifactId>
+		</dependency>
+	</dependencies>
+	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-maven-plugin</artifactId>
+				<version>${camel.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+						<Import-Package>*</Import-Package>
+						<Export-Package>co.edu.uniandes*</Export-Package>
+						<Private-Package>co.edu.uniandes*</Private-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>fabric8-maven-plugin</artifactId>
+				<version>${version.fabric8-maven-plugin}</version>
+				<configuration>
+					<!-- <bundles> -->
+					<!-- mvn:${project.groupId}/${project.artifactId}/${project.version};start-level=55 -->
+					<!-- </bundles> -->
+					<parentProfiles>feature-camel</parentProfiles>
+					<features>camel-netty-http
+						camel-spring
+						camel-jackson
+						camel-swagger
+						camel-http4
+						camel-sql</features>
+					<profile>${fabric8.profile}</profile>
+					<minInstanceCount>0</minInstanceCount>
+					<version>${fabric8.profileVersion}</version>
+					<jolokiaUrl>${fabric8.jolokiaUrl}</jolokiaUrl>
+					<pushOnSuccess>true</pushOnSuccess>
+					<uniqueVersion>true</uniqueVersion>
+					<generateSummaryFile>false</generateSummaryFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>
