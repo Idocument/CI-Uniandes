@@ -10,10 +10,10 @@ import co.edu.uniandes.hcm.util.Constants;
 public class SqlRouteService extends AbstractRouteBuilder {
 	@Override
 	public void configure() throws Exception {
-		from(Constants.ROUTE_CONSUME_SQL).routeId("routeConsumeSql").streamCaching()
-		.log(LoggingLevel.INFO, LOG, "Inicia ruta consumo sql prueba.")
-		.to("sqlHcm:select * from usuario")
-		.log(LoggingLevel.INFO, LOG, "Resultado query: ${body}");
+//		from(Constants.ROUTE_CONSUME_SQL).routeId("routeConsumeSql").streamCaching()
+//		.log(LoggingLevel.INFO, LOG, "Inicia ruta consumo sql prueba.")
+//		.to("sqlHcm:select * from usuario")
+//		.log(LoggingLevel.INFO, LOG, "Resultado query: ${body}");
 		
 	}
 

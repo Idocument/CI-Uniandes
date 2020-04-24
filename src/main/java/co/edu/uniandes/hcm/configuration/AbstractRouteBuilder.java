@@ -22,7 +22,7 @@ import co.edu.uniandes.hcm.util.Constants;
 public abstract class AbstractRouteBuilder extends RouteBuilder {
 
 	public Logger LOG = LoggerFactory.getLogger(Constants.LOG_NAME);
-	public DataSource datasource;
+//	public DataSource datasource;
 	/*
 	 * Default Configuration for camel routes
 	 */
@@ -30,10 +30,10 @@ public abstract class AbstractRouteBuilder extends RouteBuilder {
 	public void configure() throws Exception {
 		// Inject datasource
 		JndiTemplate jndi = new JndiTemplate();
-		datasource = (DataSource)jndi.lookup("osgi:service/jdbc/uni_andes_banner9");	
-		SqlComponent sqlHcm = new SqlComponent();
-		sqlHcm.setDataSource(datasource);
-		getContext().addComponent(Constants.SQL_COMPONENT, sqlHcm);
+//		datasource = (DataSource)jndi.lookup("osgi:service/jdbc/uni_andes_banner9");	
+//		SqlComponent sqlHcm = new SqlComponent();
+//		sqlHcm.setDataSource(datasource);
+//		getContext().addComponent(Constants.SQL_COMPONENT, sqlHcm);
 		// Inject properties in camel context
 		PropertiesComponent pc = getContext().getComponent("properties", PropertiesComponent.class);
 		pc.setLocation("ref:props");		

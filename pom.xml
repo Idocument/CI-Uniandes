@@ -14,7 +14,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.edu.uniandes</groupId>
 	<artifactId>uniandes-hcm</artifactId>
-	<version>1.0.5</version>
+	<version>1.0.6</version>
 	<packaging>bundle</packaging>
 	<name>ROUTE-UNIANDES ::: WS ::: PROXY HCM</name>
 
